@@ -6,12 +6,6 @@ public class FriendlyBullet : MonoBehaviour
 {
     private float speed = 10;
 
-    void Start()
-    {
-        
-    }
-
-    
     void Update()
     {
         transform.Translate(Vector2.up * Time.deltaTime * speed);

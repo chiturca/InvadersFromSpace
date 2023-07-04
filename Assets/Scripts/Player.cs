@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main;
-        width = (1 / (cam.WorldToViewportPoint(new Vector3(1, 1, 0)).x - .5f / 2)- 0.25f);
+        width = ((1 / (cam.WorldToViewportPoint(new Vector3(1, 1, 0)).x - .5f) / 2) - 0.25f);
     }
 
     void Start()
