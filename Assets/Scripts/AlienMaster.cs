@@ -14,6 +14,8 @@ public class AlienMaster : MonoBehaviour
     private const float MAX_LEFT = -3f;
     private const float MAX_RIGHT = 3f;
 
+    private const float MAX_MOVE_SPEED = 0.02f;
+
     public static List<GameObject> allAliens = new List<GameObject>();
 
     private bool movingRight;
@@ -28,8 +30,6 @@ public class AlienMaster : MonoBehaviour
     private float motherShipTimer = 1f;
     private const float MOTHERSHIP_MIN = 15f;
     private const float MOTHERSHIP_MAX = 60f;
-
-    private const float MAX_MOVE_SPEED = 0.02f;
 
     void Start()
     {
@@ -95,10 +95,18 @@ public class AlienMaster : MonoBehaviour
         }
     }
 
-    private void SpawnMotherShip()
+    private float GetMoveSpeed()
     {
-        Instantiate(motherShipPrefab, motherShipSpawnPos, Quaternion.identity);
-        motherShipTimer = Random.Range(MOTHERSHIP_MIN, MOTHERSHIP_MAX);
+        float f = allAliens.Count * moveTime;
+
+        if (f < MAX_MOVE_SPEED)
+        {
+            return MAX_MOVE_SPEED;
+        }
+        else
+        {
+            return f;
+        }
     }
 
     private void Shoot()
@@ -112,19 +120,9 @@ public class AlienMaster : MonoBehaviour
         shootTimer = ShootTime;
     }
 
-    private float GetMoveSpeed()
+    private void SpawnMotherShip()
     {
-        float f = allAliens.Count * moveTime;
-
-        if (f < MAX_MOVE_SPEED)
-        {
-            return MAX_MOVE_SPEED;
-        }
-        else
-        {
-            return f;
-        }
-
-        return f;
+        Instantiate(motherShipPrefab, motherShipSpawnPos, Quaternion.identity);
+        motherShipTimer = Random.Range(MOTHERSHIP_MIN, MOTHERSHIP_MAX);
     }
 }
