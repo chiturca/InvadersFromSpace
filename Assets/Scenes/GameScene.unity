@@ -471,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1364228802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1871452087}
   - component: {fileID: 1871452086}
+  - component: {fileID: 1871452088}
   m_Layer: 0
   m_Name: AlienParent
   m_TagString: Untagged
@@ -653,7 +654,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78696512e2543cb43b1273ce21b9b133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 4918920890385995064, guid: 96c0e6b9e80b5c440b9e4b75d6e48fd0, type: 3}
+  objectPool: {fileID: 1871452088}
+  bulletPrefab: {fileID: 1871452085}
 --- !u!4 &1871452087
 Transform:
   m_ObjectHideFlags: 0
@@ -674,3 +676,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1871452088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871452085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac4f67e8e6650e469a99930279fad30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPrefab: {fileID: 4918920890385995064, guid: 96c0e6b9e80b5c440b9e4b75d6e48fd0, type: 3}
+  poolSize: 2

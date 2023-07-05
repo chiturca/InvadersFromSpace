@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AlienMaster : MonoBehaviour
 {
+    [SerializeField] private ObjectPool objectPool = null;
+
     public GameObject bulletPrefab;
 
     private Vector3 hMoveDistance = new Vector3(0.05f, 0, 0);
@@ -17,6 +19,9 @@ public class AlienMaster : MonoBehaviour
     private bool movingRight;
     private float moveTimer = 0.01f;
     private float moveTime = 0.005f;
+
+    private float shootTimer = 3f;
+    private const float ShootTime = 3f;
 
     private const float MAX_MOVE_SPEED = 0.02f;
 
@@ -35,7 +40,13 @@ public class AlienMaster : MonoBehaviour
         {
             MoveEnemies();
         }
+
+        if (shootTimer <= 0)
+        {
+            Shoot();
+        }
         moveTimer -= Time.deltaTime;
+        shootTimer -= Time.deltaTime;
     }
 
     private void MoveEnemies()
@@ -70,6 +81,17 @@ public class AlienMaster : MonoBehaviour
             }
             moveTimer = GetMoveSpeed();
         }
+    }
+
+    private void Shoot()
+    {
+        Vector2 pos = allAliens[Random.Range(0, allAliens.Count)].transform.position;
+
+        //Instantiate(bulletPrefab, pos, Quaternion.identity);
+        GameObject obj = objectPool.GetPooledObject();
+        obj.transform.position = pos;
+
+        shootTimer = ShootTime;
     }
 
     private float GetMoveSpeed()

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 4918920890385995070}
   - component: {fileID: 4918920890385995071}
   - component: {fileID: 4918920890385995068}
+  - component: {fileID: 975102801357279377}
+  - component: {fileID: -737526474567455609}
   m_Layer: 0
   m_Name: EnemyBullet
   m_TagString: Untagged
@@ -133,3 +135,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.18857682, y: 0.4365517}
   m_EdgeRadius: 0
+--- !u!114 &975102801357279377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918920890385995064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0f692982887d4459765414cfbb16d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-737526474567455609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918920890385995064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5834067e5a30294681bb6d15b186150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletDeactivatePos: 10
