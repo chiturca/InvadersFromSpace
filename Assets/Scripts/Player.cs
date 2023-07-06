@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
 
     public ShipStats shipStats;
     private Vector2 offScreenPos = new Vector2(0, -20f);
-    private Vector2 startPos = new Vector2(0, -5f);
+    private Vector2 startPos = new Vector2(0, -6.5f);
 
     private void Awake()
     {
@@ -30,6 +30,9 @@ public class Player : MonoBehaviour
         shipStats.currentHealth = shipStats.maxHealth;
         shipStats.currentLifes = shipStats.maxLifes;
         transform.position = startPos;
+
+        UIManager.UpdateHealthBar(shipStats.currentHealth);
+        UIManager.UpdateLives(shipStats.currentLifes);
     }
 
     
@@ -81,14 +84,19 @@ public class Player : MonoBehaviour
         shipStats.currentHealth = shipStats.maxHealth;
 
         transform.position = startPos;
+
+        UIManager.UpdateHealthBar(shipStats.currentHealth);
     }
 
     public void TakeDamage()
     {
         shipStats.currentHealth--;
+        UIManager.UpdateHealthBar(shipStats.currentHealth);
+
         if (shipStats.currentHealth <= 0)
         {
             shipStats.currentLifes--;
+            UIManager.UpdateLives(shipStats.currentLifes);
 
             if (shipStats.currentLifes <= 0)
             {
