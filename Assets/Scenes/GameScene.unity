@@ -1453,6 +1453,18 @@ PrefabInstance:
       propertyPath: objectPool
       value: 
       objectReference: {fileID: 825093342}
+    - target: {fileID: -5142714541298785391, guid: 5262a62ae6f0a4e4db4f8bad1d60ef02, type: 3}
+      propertyPath: shipStats.fireRate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5142714541298785391, guid: 5262a62ae6f0a4e4db4f8bad1d60ef02, type: 3}
+      propertyPath: shipStats.maxHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -5142714541298785391, guid: 5262a62ae6f0a4e4db4f8bad1d60ef02, type: 3}
+      propertyPath: shipStats.shipSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6059075917666044617, guid: 5262a62ae6f0a4e4db4f8bad1d60ef02, type: 3}
       propertyPath: m_RootOrder
       value: 1
