@@ -31,6 +31,9 @@ public class AlienMaster : MonoBehaviour
     private const float MOTHERSHIP_MIN = 15f;
     private const float MOTHERSHIP_MAX = 60f;
 
+    private const float START_Y = 1.7f;
+    private bool entering = true;
+
     void Start()
     {
         foreach(GameObject go in GameObject.FindGameObjectsWithTag("Alien"))
@@ -42,23 +45,35 @@ public class AlienMaster : MonoBehaviour
     
     void Update()
     {
-        if (moveTimer <= 0)
+        if (entering)
         {
-            MoveEnemies();
-        }
+            transform.Translate(Vector2.down * Time.deltaTime * 10);
 
-        if (shootTimer <= 0)
-        {
-            Shoot();
+            if (transform.position.y <= START_Y)
+            {
+                entering = false;
+            }
         }
+        else
+        {
+            if (moveTimer <= 0)
+            {
+                MoveEnemies();
+            }
 
-        if (motherShipTimer <= 0)
-        {
-            SpawnMotherShip();
+            if (shootTimer <= 0)
+            {
+                Shoot();
+            }
+
+            if (motherShipTimer <= 0)
+            {
+                SpawnMotherShip();
+            }
+            moveTimer -= Time.deltaTime;
+            shootTimer -= Time.deltaTime;
+            motherShipTimer -= Time.deltaTime;
         }
-        moveTimer -= Time.deltaTime;
-        shootTimer -= Time.deltaTime;
-        motherShipTimer -= Time.deltaTime;
     }
 
     private void MoveEnemies()

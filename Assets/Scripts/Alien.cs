@@ -13,6 +13,11 @@ public class Alien : MonoBehaviour
 
         AlienMaster.allAliens.Remove(gameObject);
         Instantiate(explosion, transform.position, Quaternion.identity);
+
+        if (AlienMaster.allAliens.Count == 0)
+        {
+            GameManager.SpawnNewWave();
+        }
         gameObject.SetActive(false);
     }
 }
