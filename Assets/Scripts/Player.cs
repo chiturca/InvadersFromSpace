@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     private Vector2 offScreenPos = new Vector2(0, -20f);
     private Vector2 startPos = new Vector2(0, -6.5f);
 
+    private float dirx;
+
     private void Awake()
     {
         cam = Camera.main;
@@ -52,6 +54,17 @@ public class Player : MonoBehaviour
             StartCoroutine(Shoot());
         }
 #endif
+
+        dirx = Input.acceleration.x;
+
+        if (dirx <= -0.1f && transform.position.x > -width)
+        {
+            transform.Translate(Vector2.left * Time.deltaTime * shipStats.shipSpeed);
+        }
+        if (dirx >= 0.1f && transform.position.x < width)
+        {
+            transform.Translate(Vector2.right * Time.deltaTime * shipStats.shipSpeed);
+        }
     }
 
     private IEnumerator Shoot()
@@ -109,5 +122,13 @@ public class Player : MonoBehaviour
             }
         }
         
+    }
+
+    public void ShootButton()
+    {
+        if (!isShooting)
+        {
+            StartCoroutine(Shoot());
+        }
     }
 }
