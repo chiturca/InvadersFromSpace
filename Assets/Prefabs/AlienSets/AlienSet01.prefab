@@ -73,6 +73,7 @@ MonoBehaviour:
   objectPool: {fileID: 4331032568282738692}
   bulletPrefab: {fileID: 4331032568282738697}
   motherShipPrefab: {fileID: 8622223797587107556, guid: e2fbc6b907b0e1249842a753f397a36a, type: 3}
+  _playerSC: {fileID: -5142714541298785391, guid: 5262a62ae6f0a4e4db4f8bad1d60ef02, type: 3}
 --- !u!114 &4331032568282738692
 MonoBehaviour:
   m_ObjectHideFlags: 0
