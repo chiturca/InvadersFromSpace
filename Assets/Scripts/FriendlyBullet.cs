@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FriendlyBullet : MonoBehaviour
@@ -16,14 +14,11 @@ public class FriendlyBullet : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Alien"))
         {
-            //Destroy(gameObject);
             collision.gameObject.GetComponent<Alien>().Kill();
             gameObject.SetActive(false);
         }
         if (collision.gameObject.CompareTag("EnemyBullet"))
         {
-            //Destroy(collision.gameObject);
-            //Destroy(gameObject);
             collision.gameObject.SetActive(false);
             gameObject.SetActive(false);
         }

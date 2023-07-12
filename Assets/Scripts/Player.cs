@@ -8,10 +8,8 @@ public class Player : MonoBehaviour
 
     Camera cam;
     public float width;
-    //private float speed = 3f;
 
     bool isShooting;
-    //float coolDown = 0.5f;
 
     [SerializeField] private ObjectPool objectPool = null;
 
@@ -71,7 +69,6 @@ public class Player : MonoBehaviour
     {
         isShooting = true;
 
-        //Instantiate(bulletPrefab, transform.position, Quaternion.identity);
         GameObject obj = objectPool.GetPooledObject();
         obj.transform.position = gameObject.transform.position;
 
@@ -117,7 +114,6 @@ public class Player : MonoBehaviour
             }
             else
             {
-                //Debug.Log("Respawn");
                 StartCoroutine(Respawn());
             }
         }
