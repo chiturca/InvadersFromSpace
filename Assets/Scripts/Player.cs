@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class Player : MonoBehaviour
     private Vector2 startPos = new Vector2(0, -6.5f);
 
     private float dirx;
+
+    public GameObject GameOverPanel;
 
     private void Awake()
     {
@@ -111,6 +114,7 @@ public class Player : MonoBehaviour
             if (shipStats.currentLifes <= 0)
             {
                 Debug.Log("Game Over");
+                GameOverPanel.SetActive(true);
             }
             else
             {
@@ -118,6 +122,11 @@ public class Player : MonoBehaviour
             }
         }
         
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ShootButton()
