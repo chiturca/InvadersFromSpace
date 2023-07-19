@@ -25,7 +25,7 @@ public class MotherShip : MonoBehaviour
             UIManager.UpdateScore(scoreValue);
 
             collision.gameObject.SetActive(false);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }
