@@ -301,7 +301,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allAlienSets:
+  - {fileID: 5111344666252906389, guid: 00f2a65aa76b0bc43989aaf3421db012, type: 3}
+  - {fileID: 7727883802424474716, guid: 3312c3fbc118e8d42a0b257c1846d5cb, type: 3}
   - {fileID: 4331032568282738697, guid: 20d55881d71dd1d41a8a077ce59f98b3, type: 3}
+  - {fileID: 1156080744483831272, guid: d3f04ee08c0c9154bbf6e08727a99d3c, type: 3}
+  - {fileID: 5119071084280848808, guid: 6e2c9247e66731c4d9d89f4049b5df86, type: 3}
 --- !u!4 &361143142
 Transform:
   m_ObjectHideFlags: 0
