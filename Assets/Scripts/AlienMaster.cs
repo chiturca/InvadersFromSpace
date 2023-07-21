@@ -11,8 +11,8 @@ public class AlienMaster : MonoBehaviour
     private Vector3 hMoveDistance = new Vector3(0.05f, 0, 0);
     private Vector3 vMoveDistance = new Vector3(0, 0.15f, 0);
 
-    private const float MAX_LEFT = -3f;
-    private const float MAX_RIGHT = 3f;
+    Camera cam;
+    private float width;
 
     private const float MAX_MOVE_SPEED = 0.02f;
 
@@ -34,11 +34,20 @@ public class AlienMaster : MonoBehaviour
     private const float START_Y = 1.7f;
     private bool entering = true;
 
+
+    private void Awake()
+    {
+        cam = Camera.main;
+        width = ((1 / (cam.WorldToViewportPoint(new Vector3(1, 1, 0)).x - .5f) / 2) - 0.25f);
+    }
+
     void Start()
     {
-        foreach(GameObject go in GameObject.FindGameObjectsWithTag("Alien"))
+        width = width - 0.15f;
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Alien"))
         {
             allAliens.Add(go);
+
         }
     }
 
@@ -92,7 +101,7 @@ public class AlienMaster : MonoBehaviour
                     allAliens[i].transform.position -= hMoveDistance;
                 }
 
-                if (allAliens[i].transform.position.x > MAX_RIGHT || allAliens[i].transform.position.x < MAX_LEFT)
+                if (allAliens[i].transform.position.x > width || allAliens[i].transform.position.x < -width)
                 {
                     hitMax++;
                 }
@@ -128,7 +137,6 @@ public class AlienMaster : MonoBehaviour
     {
         Vector2 pos = allAliens[Random.Range(0, allAliens.Count)].transform.position;
 
-        //Instantiate(bulletPrefab, pos, Quaternion.identity);
         GameObject obj = objectPool.GetPooledObject();
         obj.transform.position = pos;
 
