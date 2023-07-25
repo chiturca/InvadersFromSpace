@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class Player : MonoBehaviour
 
     private float dirx;
 
-    public GameObject GameOverPanel;
+    public GameManager gameManager;
 
     private void Awake()
     {
@@ -42,30 +41,35 @@ public class Player : MonoBehaviour
     void Update()
     {
 #if UNITY_EDITOR
-        if (Input.GetKey(KeyCode.A) && transform.position.x > -width)
+        if (GameManager.gameOver == false)
         {
-            transform.Translate(Vector2.left * Time.deltaTime * shipStats.shipSpeed);
-        }
-        if (Input.GetKey(KeyCode.D) && transform.position.x < width)
-        {
-            transform.Translate(Vector2.right * Time.deltaTime * shipStats.shipSpeed);
-        }
-        if (Input.GetKey(KeyCode.Space) && !isShooting)
-        {
-            StartCoroutine(Shoot());
+            if (Input.GetKey(KeyCode.A) && transform.position.x > -width)
+            {
+                transform.Translate(Vector2.left * Time.deltaTime * shipStats.shipSpeed);
+            }
+            if (Input.GetKey(KeyCode.D) && transform.position.x < width)
+            {
+                transform.Translate(Vector2.right * Time.deltaTime * shipStats.shipSpeed);
+            }
+            if (Input.GetKey(KeyCode.Space) && !isShooting)
+            {
+                StartCoroutine(Shoot());
+            }
         }
 #endif
-
-        dirx = Input.acceleration.x;
-
-        if (dirx <= -0.1f && transform.position.x > -width)
+        if (GameManager.gameOver == false)
         {
-            transform.Translate(Vector2.left * Time.deltaTime * shipStats.shipSpeed);
-        }
-        if (dirx >= 0.1f && transform.position.x < width)
-        {
-            transform.Translate(Vector2.right * Time.deltaTime * shipStats.shipSpeed);
-        }
+            dirx = Input.acceleration.x;
+
+            if (dirx <= -0.1f && transform.position.x > -width)
+            {
+                transform.Translate(Vector2.left * Time.deltaTime * shipStats.shipSpeed);
+            }
+            if (dirx >= 0.1f && transform.position.x < width)
+            {
+                transform.Translate(Vector2.right * Time.deltaTime * shipStats.shipSpeed);
+            }
+        } 
     }
 
     private IEnumerator Shoot()
@@ -114,7 +118,7 @@ public class Player : MonoBehaviour
             if (shipStats.currentLifes <= 0)
             {
                 Debug.Log("Game Over");
-                GameOverPanel.SetActive(true);
+                gameManager.GameOver();
             }
             else
             {
@@ -122,11 +126,6 @@ public class Player : MonoBehaviour
             }
         }
         
-    }
-
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ShootButton()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,11 +11,16 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    public static bool gameOver;
+
+    public GameObject gameOverPanel;
+
     private void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            //DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -24,6 +30,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        gameOver = false;
         SpawnNewWave();
     }
     public static void SpawnNewWave()
@@ -40,5 +47,16 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(3);
         currentSet = Instantiate(allAlienSets[Random.Range(0, allAlienSets.Length)], spawnPos, Quaternion.identity);
         UIManager.UpdateWave();
+    }
+
+    public void GameOver()
+    {
+        gameOver = true;
+        gameOverPanel.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

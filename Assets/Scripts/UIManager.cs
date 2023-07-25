@@ -33,6 +33,8 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        highScore = PlayerPrefs.GetInt("HighScore");
+        instance.highScoreText.text = instance.highScore.ToString("000,000");
     }
 
     public static void UpdateLives(int l)
@@ -54,10 +56,12 @@ public class UIManager : MonoBehaviour
     {
         instance.score += s;
         instance.scoreText.text = instance.score.ToString("000,000");
-    }
-    public static void UpdateHighScore()
-    {
-
+        if (instance.score > instance.highScore)
+        {
+            instance.highScore = instance.score;
+            instance.highScoreText.text = instance.highScore.ToString("000,000");
+            PlayerPrefs.SetInt("HighScore", instance.highScore);
+        }
     }
     public static void UpdateCoins()
     {

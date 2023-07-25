@@ -306,6 +306,7 @@ MonoBehaviour:
   - {fileID: 4331032568282738697, guid: 20d55881d71dd1d41a8a077ce59f98b3, type: 3}
   - {fileID: 1156080744483831272, guid: d3f04ee08c0c9154bbf6e08727a99d3c, type: 3}
   - {fileID: 5119071084280848808, guid: 6e2c9247e66731c4d9d89f4049b5df86, type: 3}
+  gameOverPanel: {fileID: 1983961759}
 --- !u!4 &361143142
 Transform:
   m_ObjectHideFlags: 0
@@ -2268,6 +2269,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 825093342}
     - target: {fileID: -5142714541298785391, guid: 5262a62ae6f0a4e4db4f8bad1d60ef02, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 361143141}
+    - target: {fileID: -5142714541298785391, guid: 5262a62ae6f0a4e4db4f8bad1d60ef02, type: 3}
       propertyPath: GameOverPanel
       value: 
       objectReference: {fileID: 1983961759}
@@ -3062,8 +3067,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1620018640}
-        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+      - m_Target: {fileID: 361143141}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:

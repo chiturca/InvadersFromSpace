@@ -65,23 +65,26 @@ public class AlienMaster : MonoBehaviour
         }
         else
         {
-            if (moveTimer <= 0)
+            if (GameManager.gameOver == false)
             {
-                MoveEnemies();
-            }
+                if (moveTimer <= 0)
+                {
+                    MoveEnemies();
+                }
 
-            if (shootTimer <= 0)
-            {
-                Shoot();
-            }
+                if (shootTimer <= 0)
+                {
+                    Shoot();
+                }
 
-            if (motherShipTimer <= 0)
-            {
-                SpawnMotherShip();
+                if (motherShipTimer <= 0)
+                {
+                    SpawnMotherShip();
+                }
+                moveTimer -= Time.deltaTime;
+                shootTimer -= Time.deltaTime;
+                motherShipTimer -= Time.deltaTime;
             }
-            moveTimer -= Time.deltaTime;
-            shootTimer -= Time.deltaTime;
-            motherShipTimer -= Time.deltaTime;
         }
     }
 
