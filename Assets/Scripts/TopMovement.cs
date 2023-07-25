@@ -17,7 +17,11 @@ public class TopMovement : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector2(transform.position.x, transform.position.y - speed * Time.deltaTime);
+        if (GameManager.gameOver == false)
+        {
+            transform.position = new Vector2(transform.position.x, transform.position.y - speed * Time.deltaTime);
+        }
+        
         
         if (transform.position.y <= -bgHeight)
         {
