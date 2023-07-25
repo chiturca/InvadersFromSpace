@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4331032568282738699}
   - component: {fileID: 4331032568282738698}
   - component: {fileID: 4331032568282738692}
+  - component: {fileID: -3648347297663563866}
   m_Layer: 0
   m_Name: AlienSet03
   m_TagString: Untagged
@@ -73,7 +74,6 @@ MonoBehaviour:
   objectPool: {fileID: 4331032568282738692}
   bulletPrefab: {fileID: 4331032568282738697}
   motherShipPrefab: {fileID: 8622223797587107556, guid: e2fbc6b907b0e1249842a753f397a36a, type: 3}
-  _playerSC: {fileID: -5142714541298785391, guid: 5262a62ae6f0a4e4db4f8bad1d60ef02, type: 3}
 --- !u!114 &4331032568282738692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,6 +88,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectPrefab: {fileID: 4918920890385995064, guid: 96c0e6b9e80b5c440b9e4b75d6e48fd0, type: 3}
   poolSize: 2
+--- !u!212 &-3648347297663563866
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4331032568282738697}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1001 &4331032568221862785
 PrefabInstance:
   m_ObjectHideFlags: 0
